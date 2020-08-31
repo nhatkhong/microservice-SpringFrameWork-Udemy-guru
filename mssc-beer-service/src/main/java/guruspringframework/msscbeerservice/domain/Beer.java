@@ -1,4 +1,4 @@
-package guruspringframework.msscbreweryclient.domain;
+package guruspringframework.msscbeerservice.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
