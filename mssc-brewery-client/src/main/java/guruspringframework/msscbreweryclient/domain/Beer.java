@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+//Add this Entity class
+
 @Getter
 @Setter
 @NoArgsConstructor
