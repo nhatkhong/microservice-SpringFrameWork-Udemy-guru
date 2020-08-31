@@ -7,6 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolationException;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/api/v1/customer")
@@ -27,7 +31,7 @@ public class CustomerController {
     }
 
     @PutMapping
-    public ResponseEntity handlePost(CustomerDTO customerDTO) {
+    public ResponseEntity handlePost(@RequestBody @Valid CustomerDTO customerDTO) {
 
         CustomerDTO savedDTO = customerService.saveCustomer(customerDTO);
 
@@ -38,7 +42,7 @@ public class CustomerController {
     }
 
     @PostMapping("/{customerId}")
-    public ResponseEntity handleUpdate(@PathVariable("customerId") UUID customerId, @RequestBody CustomerDTO customerDTO) {
+    public ResponseEntity handleUpdate(@PathVariable("customerId") UUID customerId, @RequestBody @Valid CustomerDTO customerDTO) {
 
         customerService.update(customerId, customerDTO);
 
@@ -50,5 +54,17 @@ public class CustomerController {
     public void deleteCustomer(@PathVariable("customerId") UUID customerId) {
 
         customerService.deleteById(customerId);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<List> validationErrorHandler(ConstraintViolationException e) {
+
+        List<String> errors = new ArrayList<>(e.getConstraintViolations().size());
+
+        e.getConstraintViolations().forEach(constraintViolation -> {
+            errors.add(constraintViolation.getPropertyPath() + " : " + constraintViolation.getMessage());
+        });
+
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 }
