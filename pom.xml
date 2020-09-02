@@ -11,6 +11,7 @@
     
     <modules>
 	<module>mssc-beer-service</module>
+        <module>mssc-brewery</module>
         <module>mssc-brewery-client</module>
     </modules>
     <properties>
@@ -30,11 +31,17 @@
                 <version>1.0.1-SNAPSHOT</version>
              </dependency>
         
-            <dependency>
+	     <dependency>
+                <groupId>guruspringframework</groupId>
+                <artifactId>mssc-brewery</artifactId>
+                <version>1.0.1-SNAPSHOT</version>
+             </dependency>
+
+             <dependency>
                 <groupId>guruspringframework</groupId>
                 <artifactId>mssc-brewery-client</artifactId>
                 <version>1.0.1-SNAPSHOT</version>
-            </dependency>
+             </dependency>
 
      </dependencies>
     
