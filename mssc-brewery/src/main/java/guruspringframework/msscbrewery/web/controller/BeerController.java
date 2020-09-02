@@ -7,9 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
-//@Deprecated
+@Deprecated
 @RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
@@ -21,15 +22,15 @@ public class BeerController {
     }
 
     @GetMapping("/{beerId}")
-    public ResponseEntity<BeerDTO> getBeer(@PathVariable("beerId") UUID beerId) {
+    public ResponseEntity<BeerDTO> getBeerById(@PathVariable("beerId") UUID beerId) {
 
-        return new ResponseEntity<>(beerService.getBeer(beerId), HttpStatus.OK);
+        return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity handlePost(@RequestBody BeerDTO beerDTO) {
+    public ResponseEntity handlePost(@Valid @RequestBody BeerDTO beerDTO) {
 
-        BeerDTO savedDTO = beerService.saveBeer(beerDTO);
+        BeerDTO savedDTO = beerService.saveNewBeer(beerDTO);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Location", "/api/v1/beer/" + savedDTO.getId().toString());
@@ -38,7 +39,7 @@ public class BeerController {
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId, @RequestBody BeerDTO beerDTO) {
+    public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId, @Valid @RequestBody BeerDTO beerDTO) {
 
         beerService.update(beerId, beerDTO);
 

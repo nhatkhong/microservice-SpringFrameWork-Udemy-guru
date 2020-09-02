@@ -9,32 +9,28 @@ import java.util.UUID;
 @Slf4j
 @Service
 public class BeerServiceImpl implements BeerService {
-
     @Override
-    public BeerDTO getBeer(UUID beerId) {
+    public BeerDTO getBeerById(UUID beerId) {
         return BeerDTO.builder().id(UUID.randomUUID())
-                .beerName("Saigon")
-                .beerStyle("Sweet")
+                .beerName("Galaxy")
+                .beerStyle("PALE_ALE")
                 .build();
     }
 
     @Override
-    public BeerDTO saveBeer(BeerDTO beerDTO) {
+    public BeerDTO saveNewBeer(BeerDTO beerDto) {
         return BeerDTO.builder()
                 .id(UUID.randomUUID())
                 .build();
     }
 
     @Override
-    public void update(UUID beerId, BeerDTO beerDTO) {
-
+    public void update(UUID beerId, BeerDTO beerDto) {
         //todo impl - would add a real impl to update beer
     }
 
     @Override
     public void deleteById(UUID beerId) {
-
-        //todo impl - would delete a real impl
         log.debug("Deleting a beer...");
     }
 }

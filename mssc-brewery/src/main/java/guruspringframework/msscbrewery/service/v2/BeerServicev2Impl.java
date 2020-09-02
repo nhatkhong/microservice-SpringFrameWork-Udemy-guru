@@ -12,7 +12,7 @@ import java.util.UUID;
 public class BeerServicev2Impl implements BeerServicev2 {
 
     @Override
-    public BeerDTOv2 getBeer(UUID beerId) {
+    public BeerDTOv2 getBeerById(UUID beerId) {
         return BeerDTOv2.builder().id(UUID.randomUUID())
                 .beerName("Saigon")
                 .beerStyle(BeerStyleEnum.GOSE)

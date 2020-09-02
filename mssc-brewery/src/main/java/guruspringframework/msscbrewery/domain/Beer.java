@@ -1,30 +1,27 @@
-package guruspringframework.msscbrewery.web.model.v2;
+package guruspringframework.msscbrewery.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Null;
-import javax.validation.constraints.Positive;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Data //Getters, Setters, Equal and HashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder //Builder pattern?
-public class BeerDTOv2 {
+public class Beer {
 
-    @Null
     private UUID id;
 
-    @NotBlank
     private String beerName;
 
-    @NotBlank
-    private BeerStyleEnum beerStyle;
+    private String beerStyle;
 
-    @Positive
     private Long upc;
+
+    private Timestamp createdDate;
+    private Timestamp lastUpdatedTDate;
 }
