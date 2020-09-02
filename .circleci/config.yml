@@ -1,8 +1,7 @@
 version: 2.1
 
 jobs:
-  build:
-     working_directory: ~/mssc-beer-service
+  working_directory: ~/mssc-beer-service
 
 orbs:
   maven: circleci/maven@0.0.12
