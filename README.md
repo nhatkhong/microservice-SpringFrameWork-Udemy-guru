@@ -4,5 +4,5 @@
 # Default Port Mappings - For Single Host
 | Service Name | Port | 
 | --------| -----|
-| [Brewery Beer Service](https://github.com/nhatvankhong/microservice-SpringFrameWork-Udemy-guru/tree/master/mssc-beer-service) | 8081 |
-| [Brewery Beer Client](https://github.com/nhatvankhong/microservice-SpringFrameWork-Udemy-guru/tree/master/mssc-brewery-client) | 8080 |
+| [Brewery Beer Service](https://github.com/nhatvankhong/microservice-SpringFrameWork-Udemy-guru/tree/master/mssc-beer-service) | 8080 |
+| [Brewery Beer Client](https://github.com/nhatvankhong/microservice-SpringFrameWork-Udemy-guru/tree/master/mssc-brewery-client) | 8081 |
