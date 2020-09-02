@@ -24,8 +24,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
-    <dependencyManagement>
-           <dependencies>
+    <dependencies>
              <dependency>
                 <groupId>guruspringframework</groupId>
                 <artifactId>mssc-beer-service</artifactId>
@@ -44,7 +43,6 @@
                 <version>1.0.1-SNAPSHOT</version>
             </dependency>
 
-        </dependencies>
-    </dependencyManagement>
+     </dependencies>
     
 </project>
